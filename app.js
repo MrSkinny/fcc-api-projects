@@ -7,6 +7,9 @@ const strftime = require('strftime');
 
 app.set('port', (process.env.PORT || 3000));
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
 app.get('/api/timestamp', (req, res) => {
   res.sendFile(__dirname + '/views/timestamp.html');
 });
