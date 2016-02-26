@@ -5,6 +5,8 @@ const app = express();
 const path = require('path');
 const strftime = require('strftime');
 
+app.set('port', (process.env.PORT || 3000));
+
 app.get('/api/timestamp', (req, res) => {
   res.sendFile(__dirname + '/views/timestamp.html');
 });
@@ -29,5 +31,7 @@ app.get('/api/timestamp/*', (req,res) => {
   
 });
 
-app.listen(3000);
+app.listen(app.get('port'), function(){
+  console.log('Node is running on ' + app.get('port'));
+});
 
